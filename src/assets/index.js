@@ -1,0 +1,1 @@
+export const ramka = require('./ramka.png')

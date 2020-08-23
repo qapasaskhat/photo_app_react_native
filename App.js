@@ -8,10 +8,11 @@
 
 import React from 'react';
 import {SafeAreaView, StyleSheet, View, Text, StatusBar} from 'react-native';
-import Home from './src/screens/Home'
+import { Home, Photo} from './src/screens/index'
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { RNCamera } from 'react-native-camera';
 
 
 
@@ -20,7 +21,12 @@ class App extends React.Component {
     return (
       <>
         <StatusBar barStyle="dark-content" />
-        <SafeAreaView>
+        <SafeAreaView style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}>
+          
           <TouchableOpacity onPress={()=>{
             this.props.navigation.navigate('Home')
           }} style={{
@@ -30,7 +36,7 @@ class App extends React.Component {
             backgroundColor: 'gold',
             borderRadius: 6,
           }}>
-            <Text>button</Text>
+            <Text>Войти</Text>
           </TouchableOpacity>
         </SafeAreaView>
       </>
@@ -43,7 +49,14 @@ const stack = createStackNavigator({
     screen: App
   },
   Home: {
-    screen: Home
+    screen: Home,
+    navigationOptions:{
+      headerTitle: 'Camera',
+      headerLeft: null,
+    }
+  },
+  Photo: {
+    screen: Photo
   }
 })
 const AppStack = createAppContainer(stack)
