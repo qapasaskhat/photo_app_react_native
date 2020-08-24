@@ -53,6 +53,7 @@ const stack = createStackNavigator({
     navigationOptions:{
       headerTitle: 'Camera',
       headerLeft: null,
+      header: null
     }
   },
   Photo: {
