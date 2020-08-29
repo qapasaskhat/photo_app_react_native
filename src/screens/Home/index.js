@@ -26,6 +26,7 @@ class HomeScreen extends Component {
     this.setState({
       uri: data.uri
     })
+    this.props.navigation.navigate('Confirmation',{param: this.state.uri})
   }
   startTimer = timeLeft => {
 
@@ -122,7 +123,7 @@ class HomeScreen extends Component {
                 }}>{this.state.timeLeft}</Text></View>
             </TouchableOpacity>}
             <TouchableOpacity onPress={()=>{
-              this.props.navigation.navigate('Photo',{param: this.state.uri})
+              this.props.navigation.navigate('Confirmation',{param: this.state.uri})
             }} style={{width: 64}}>
               {this.state.uri && <Image source={{uri: this.state.uri}}  style={{
                 width: 64,

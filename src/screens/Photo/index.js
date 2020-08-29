@@ -5,12 +5,12 @@ import {
     StatusBar, 
     SafeAreaView,
     Image , 
-    ImageBackground,
+    TextInput,
     CameraRoll
 } from 'react-native';
 import styles from '../styles'
 import {ramka} from '../../assets'
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 import ViewShot from 'react-native-view-shot'
 
 class PhotoScreen extends Component {
@@ -44,7 +44,8 @@ class PhotoScreen extends Component {
     return (
      <>
      <StatusBar />
-     <View style={[styles.container,]}>
+     <View style={[styles.container,{backgroundColor:'#9DD5F4'}]}>
+       <ScrollView>
          <ViewShot ref="viewShot" options={{ format: "jpg", quality: 0.9 }}
          style={{
              justifyContent:'center',
@@ -65,11 +66,24 @@ class PhotoScreen extends Component {
                     resizeMode: 'contain',
                 }}/>
          </ViewShot>
+         <Text style={{fontSize: 20,marginHorizontal:20}}>Enter your email</Text>
+         <View style={{flexDirection:'row',marginHorizontal:20, marginVertical:8}}>
+          <TextInput placeholderTextColor='#fff' placeholder='enter your email' style={{
+            borderWidth: 1,
+            width: '60%',
+            borderColor:'#fff',
+            paddingLeft: 8,
+            marginRight: 10
+          }} />
+          <TouchableOpacity>
+            <Text style={{fontWeight: 'bold',fontSize: 32,color:'#fff'}}>+</Text>
+          </TouchableOpacity>
+         </View>
          <View >
          <TouchableOpacity 
-         onPress={()=>this.screenShot()}
+         onPress={()=>{}}
          style={{
-             backgroundColor: '#cecece',
+             backgroundColor: '#fff',
              alignItems:'center',
              marginHorizontal:20,
              paddingVertical:10,
@@ -78,10 +92,10 @@ class PhotoScreen extends Component {
                  color: '#000',
                  textTransform: 'uppercase',
                  fontWeight: 'bold'
-             }}>Save photo</Text>
+             }}>Send</Text>
          </TouchableOpacity>
          </View>
-         
+         </ScrollView>
      </View>
      </>
     );
